@@ -1,7 +1,7 @@
 # conditional_batch_normalization
 Conditional Batch Normalization Pytorch Implementation
 
-This is conditional batch normalization which was introduced in [1] and [2] and successfully applied for conditional image generation in [3]. 
+This is a conditional batch normalization which was introduced in [1] and [2] and successfully applied for conditional image generation in [3]. 
 
 [1]Dumoulin, Vincent, Jonathon Shlens, and Manjunath Kudlur. "A learned representation for artistic style." CoRR, abs/1610.07629 2.4 (2016): 5.
 
