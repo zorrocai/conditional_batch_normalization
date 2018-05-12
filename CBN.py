@@ -127,7 +127,6 @@ def batch_norm(input, running_mean, running_var, gammas, betas,
 if __name__ == '__main__':
 
     model = CBN(2,2,128).cuda()
-    #x = torch.Tensor(4,128,16,16)
     x = torch.ones([4,128,16,16])
     one_hot = torch.zeros([4,2])
     one_hot[0,0] = 1
