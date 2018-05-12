@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-from torch.nn.parameter import Parameter
 from torch.autograd import Variable
 
 class CBN(nn.Module):
@@ -13,13 +12,13 @@ class CBN(nn.Module):
         self.is_training = is_training
 
         #Affine transform parameters
-        self.gamma = Parameter(torch.Tensor(num_features), requires_grad = True)
-        self.beta = Parameter(torch.Tensor(num_features), requires_grad = True)
+        self.gamma = nn.Parameter(torch.Tensor(num_features), requires_grad = True)
+        self.beta = nn.Parameter(torch.Tensor(num_features), requires_grad = True)
         
         #Running mean and variance, these parameters are not trained by backprop
-        self.running_mean = Parameter(torch.Tensor(num_features), requires_grad = False)
-        self.running_var = Parameter(torch.Tensor(num_features), requires_grad = False)
-        self.num_batches_tracked = Parameter(torch.Tensor(1), requires_grad = False)      
+        self.running_mean = nn.Parameter(torch.Tensor(num_features), requires_grad = False)
+        self.running_var = nn.Parameter(torch.Tensor(num_features), requires_grad = False)
+        self.num_batches_tracked = nn.Parameter(torch.Tensor(1), requires_grad = False)      
         
         #Parameter initilization
         self.reset_parameters()
@@ -138,4 +137,5 @@ if __name__ == '__main__':
     one_hot = Variable(one_hot.cuda())
     
     print(model(x,one_hot))
+    print(model.state_dict)
     
