@@ -1,5 +1,5 @@
-# conditional_batch_normaliation
-Conditional Batch Normaliation Pytorch Implementation
+# conditional_batch_normalization
+Conditional Batch Normalization Pytorch Implementation
 
 This is conditional batch normalization which was introduced in [1] and [2] and successfully applied for conditional image generation in [3]. 
 
