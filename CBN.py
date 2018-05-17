@@ -99,7 +99,7 @@ def batch_norm(input, running_mean, running_var, gammas, betas,
         N, C, H, W = input.size()
 
         # Mini-batch mean and variance
-        input_channel_major = input.permute(1, 0, 2, 3).contiguous().view(C -1)
+        input_channel_major = input.permute(1, 0, 2, 3).contiguous().view(input.size(1), -1)
         mean = input_channel_major.mean(dim=1)
         variance = input_channel_major.var(dim=1)
 
