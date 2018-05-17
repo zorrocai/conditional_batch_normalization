@@ -98,10 +98,10 @@ def batch_norm(input, running_mean, running_var, gammas, betas,
         # Extract the dimensions
         N, C, H, W = input.size()
 
-        # Mini-batch mean
-        mean = torch.mean(input.view(C,-1), dim=1)
-        # Mini-batch variance
-        variance = torch.mean(((input - mean.view(1,C,1,1).expand((N, C, H, W))) ** 2).view(C,-1), dim=1)
+        # Mini-batch mean and variance
+        input_channel_major = input.permute(1, 0, 2, 3).contiguous().view(C -1)
+        mean = input_channel_major.mean(dim=1)
+        variance = input_channel_major.var(dim=1)
 
         # Normalize
         if is_training:
